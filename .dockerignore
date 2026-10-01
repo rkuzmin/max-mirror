@@ -1,0 +1,7 @@
+data/
+.venv/
+.env
+__pycache__/
+.claude/
+.github/
+test_pipeline.py

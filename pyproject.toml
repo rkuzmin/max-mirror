@@ -1,0 +1,26 @@
+[project]
+name = "max-mirror"
+version = "0.1.0"
+description = "Unofficial read-only mirror of a MAX messenger account: SQLite history + signed webhook stream"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Roman Kuzmin" }]
+requires-python = ">=3.11"
+keywords = ["max", "messenger", "userbot", "archive", "webhook", "sqlite"]
+dependencies = [
+    # pinned: the protocol is unofficial; upgrade only after test_pipeline.py and a live check pass
+    "maxapi-python==2.4.1",
+    "aiohttp>=3.13",
+]
+
+[project.scripts]
+max-mirror = "max_mirror.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/rkuzmin/max-mirror"
+Issues = "https://github.com/rkuzmin/max-mirror/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

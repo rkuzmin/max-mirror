@@ -1,0 +1,11 @@
+services:
+  max-mirror:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - maxdata:/data            # max.db + session.db (full account access, chmod 600)
+    ports:
+      - "127.0.0.1:8080:8080"    # GET /health
+volumes:
+  maxdata:
