@@ -45,6 +45,7 @@ def message(raw: dict, chat_id) -> dict:
         # unknown type keeps the whole raw message (MSG-2)
         "attachments": [raw] if kind == "unknown" else attaches,
         "status": raw.get("status"),  # EDITED / REMOVED / None
+        "updated_at": raw.get("updateTime"),
     }
 
 

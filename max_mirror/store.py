@@ -69,7 +69,7 @@ class Store:
     def save_message(self, m: dict, notify: bool) -> str | None:
         """Insert or apply an edit; returns the event type written, or None for a duplicate."""
         now = now_ms()
-        edited_at = now if m["status"] == "EDITED" else None
+        edited_at = (m.get("updated_at") or now) if m["status"] == "EDITED" else None
         attachments = json.dumps(m["attachments"], ensure_ascii=False, default=str)
         with self.db:
             old = self.one("SELECT text, attachments FROM messages WHERE chat_id=? AND message_id=?",
